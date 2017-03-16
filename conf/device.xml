@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cwmp>
+	<model>
+		<object name="Device">
+			<param name="DeviceSummary" get_func="TRF_Get_DeviceSummary"/>
+			<object name="DeviceInfo">				
+				<param name="ModelName" rw="0" get_func=""/>
+				<param name="Manufacturer" rw="0" get_func="cpe_get_igd_di_manufacturer"/>
+				<param name="ManufacturerOUI" rw="0" get_func="cpe_get_igd_di_manufactureroui"/>
+				<param name="ProductClass" rw="0" get_func="cpe_get_igd_di_productclass"/>
+				<param name="SerialNumber" rw="0" get_func="cpe_get_igd_di_serialnumber"/>				
+				<param name="Description" rw="0"		get_func="cpe_get_Description"/>
+				<param name="HardwareVersion" rw="0" get_func="cpe_get_igd_di_hardwareversion"/>
+				<param name="SpecVersion" rw="0" get_func="cpe_get_igd_di_specversion"/>
+				<param name="SoftwareVersion" rw="0" get_func="cpe_get_igd_di_softwareversion" set_func="cpe_set_igd_di_softwareversion"/>
+				<param name="ProvisioningCode" rw="0" get_func="cpe_get_igd_di_provisioningcode" set_func="cpe_set_igd_di_provisioningcode"/>					
+				<param name="EnabledOptions" rw="0" type="s"	get_func=""/>
+				<param name="AdditionalHardwareVersion" rw="0"		get_func=""/>	
+				<param name="AdditionalSoftwareVersion" rw="0"		get_func=""/>	
+				<param name="DeviceStatus" rw="0" type="s"	get_func=""/>
+				<param name="UpTime" rw="0" type="s"	get_func=""/>
+				<param name="FirstUseDate" rw="0" type="s"	get_func=""/>
+				<param name="DeviceLog" rw="0" type="s"	get_func=""/>
+			</object>			
+			<object name="GatewayInfo">			
+				<param name="ManufacturerOUI" rw="0" get_func="cpe_get_igd_gwmanufactureroui"/>
+				<param name="ProductClass" rw="0" get_func="cpe_get_igd_gwproductclass"/>
+				<param name="SerialNumber" rw="0" get_func="cpe_get_igd_gwserialnumber"/>				
+			</object>						
+			<object name="ManagementServer">
+				<param name="ConnectionRequestURL" rw="1" get_func="cpe_get_dev_ms_connectionrequesturl" set_func="cpe_set_dev_ms_connectionrequesturl"/>
+				<param name="ConnectionRequestUsername" rw="1" type="s256" get_func="cpe_get_dev_ms_connectionrequestusername" set_func="cpe_set_dev_ms_connectionrequestusername"/>
+				<param name="ConnectionRequestPassword" rw="1" type="s256"  get_func="cpe_get_dev_ms_connectionrequestpassword" set_func="cpe_set_dev_ms_connectionrequestpassword"/>
+				<param name="Username" rw="1" noti_rw="1" get_func="cpe_get_dev_ms_username" set_func="cpe_set_dev_ms_username"/>
+				<param name="Password" rw="1" noti_rw="1" get_func="cpe_get_dev_ms_password" set_func="cpe_set_dev_ms_password"/>
+				<param name="URL"  rw="1" noti_rw="1" get_func="cpe_get_dev_ms_url" set_func="cpe_set_dev_ms_url"/>
+				<param name="PeriodicInformEnable" rw="1" noti_rw="1" type="bool" get_func="cpe_get_dev_periodicEnable" set_func="cpe_set_dev_periodicEnable"/>
+				<param name="PeriodicInformInterval" rw="1" noti_rw="1" get_func="cpe_get_dev_periodicInterval" set_func="cpe_set_dev_periodicInterval"/>
+				<param name="PeriodicInformTime" rw="1" type="s" get_func="cpe_get_dev_periodicTime" set_func="cpe_set_dev_periodicTime"/>
+				<param name="ParameterKey" rw="1" get_func="" set_func=""/>
+				<param name="UDPConnectionRequestAddress" rw="1" get_func="" set_func=""/>
+				<param name="UDPConnectionRequestAddressNotificationLimit" rw="1" get_func=""/>
+				<param name="STUNEnable" rw="1" type="s" get_func="" set_func=""/>
+				<param name="STUNServerAddress" rw="1" get_func="" set_func=""/>
+				<param name="STUNServerPort" rw="1" get_func="" set_func=""/>
+				<param name="STUNUsername" rw="1" get_func="" set_func=""/>
+				<param name="STUNPassword" rw="1" get_func="" set_func=""/>
+				<param name="STUNMaximumKeepAlivePeriod" rw="1" type="s" get_func="" set_func=""/>
+				<param name="STUNMinimumKeepAlivePeriod" rw="1" type="s" get_func="" set_func=""/>
+				<param name="NATDetected" type="s" get_func="" set_func=""/>
+			</object>
+			<object name="Capabilities">				
+				<object name="PerformanceDiagnostic">
+					<param name="DownloadTransports" type="s" />
+					<param name="UploadTransports" type="s" />
+				</object>
+			</object>
+			<object name="Config">
+				<param name="PersistentData" />
+				<param name="ConfigFile"  />				
+			</object>
+			<object name="Time">
+				<param name="NTPServer1" />
+				<param name="NTPServer2" />
+				<param name="NTPServer3" />
+				<param name="NTPServer4" />
+				<param name="NTPServer5" />
+				<param name="CurrentLocalTime" />
+				<param name="LocalTimeZone" />
+			</object>
+			<object name="UserInterface">
+				<param name="PasswordRequired" />
+				<param name="PasswordUserSelectable" />
+				<param name="UpgradeAvailable" />
+				<param name="WarrantyDate" />
+				<param name="ISPName" />
+				<param name="ISPHelpDesk" />
+				<param name="ISPHomePage" />
+				<param name="ISPLogo" />
+				<param name="ISPLogoSize" />
+				<param name="ISPMailServer" />
+				<param name="ISPNewsServer" />
+				<param name="TextColor" />
+				<param name="BackgroundColor" />
+				<param name="ButtonTextColor" />
+				<param name="BackgroundColor" />
+				<param name="AutoUpdateServer" />
+				<param name="UserUpdateServer" />
+				<param name="AvailableLanguages" />				
+				<param name="CurrentLanguage" />  
+				
+			</object>
+			<object name="Lan">
+				<param name="AddressingType" rw="0" type="s" />
+				<param name="IPAddress" rw="1" type="s" get_func="get_IP_address" 	    set_func="set_IP_address" ></param> 
+				<param name="SubnetMask" rw="1" type="s" get_func="get_SubnetMask" 	    set_func="set_SubnetMask" ></param>  
+				<param name="DefaultGateway" rw="0" type="s" />
+				<param name="DNSServers" rw="0" type="s" /> 
+				<param name="MACAddress" rw="0" type="s" />
+				<param name="MACAddressOverride" rw="0" type="s" />
+				<param name="DHCPOptionNumberOfEntries" rw="0" type="uint" />				
+				<object name="DHCPOption" rw="0" refresh_func="">
+					<object name="{i}">
+						<param name= "Request" />
+						<param name= "Tag" />
+						<param name= "Value" />
+						<param name="Request" />
+						<param name="Tag" />
+						<param name="Value" />
+					</object>
+				</object>
+				<object name= "Stats" >
+					<param name= "ConnectionUpTime" />
+					<param name = "ConnectionUpTime" />
+					<param name = "TotalBytesSent" />
+					<param name = "TotalBytesSent" />
+					<param name = "TotalBytesReceived" />
+				</object>
+				<object name="IPPingDiagnostics" >
+						<param name="DiagnosticsState" rw="1" get_func="" set_func=""/>
+						<param name="Interface" rw="1" get_func="" set_func=""/>
+						<param name="Host" rw="1" get_func="" set_func=""/>
+						<param name="NumberOfRepetitions" rw="1" get_func="" set_func=""/>
+						<param name="Timeout" rw="1" get_func="" set_func=""/>
+						<param name="DataBlockSize" rw="1" get_func="" set_func=""/>
+						<param name="DSCP" rw="1" get_func="" set_func=""/>
+						<param name="SuccessCount" get_func=""/>
+						<param name="FailureCount" get_func=""/>
+						<param name="AverageResponseTime" get_func=""/>
+						<param name="MinimumResponseTime" get_func=""/>
+						<param name="MaximumResponseTime" get_func=""/>					
+				</object>
+				<object name="TraceRouteDiagnostics">
+						<param name="DiagnosticsState" rw="1" get_func="" set_func=""/>
+						<param name="Interface" rw="1" get_func="" set_func=""/>
+						<param name="Host" rw="1" get_func="" set_func=""/>
+						<param name="NumberOfTries" rw="1" get_func="" set_func=""/>
+						<param name="Timeout" rw="1" get_func="" set_func=""/>
+						<param name="DataBlockSize" rw="1" get_func="" set_func=""/>
+						<param name="DSCP" rw="1" get_func="" set_func=""/>
+						<param name="MaxHopCount" rw="1" get_func="" set_func=""/>
+						<param name="ResponseTime" get_func=""/>
+						<param name="RouteHopsNumberOfEntries" get_func=""/>
+						<object name="RouteHops" refresh_func="cpe_refresh_igd_TraceRouteDiagnostics_RouteHops">
+							<object name="{i}">
+								<param name="HopHost" get_func=""/>
+								<param name="HopHostAddress" get_func=""/>
+								<param name="HopErrorCode" get_func=""/>
+								<param name="HopRTTimes" get_func=""/>
+							</object>
+						</object>
+				</object>				
+			</object>				
+			<!--for WLAN parameters-->
+			<object name="WLANConfiguration">  
+			<object name="1">   
+				<!--for Device WLAN parameters(2.4G)-->
+			        <!--for Device wireless basic settings-->
+			       <param name="Enable" 		                     rw="1"	type="bool" get_func="getWlanBasicEnable" 	    set_func="setWlanBasicEnable" ></param>
+			       <param name="SSIDAdvertisementEnabled"      rw="1"    type="bool" get_func="getWlanBasicAdvertisementEnabled"       set_func="setWlanBasicAdvertisementEnabled" ></param>
+				<param name="SSID"  		                           rw="1"	type="s32" get_func="getWlanBasicSSID" 	    set_func="setWlanBasicSSID" ></param>
+				<param name="Standard"			              rw="1"   type="s"   get_func="getWlanBasicMode" 	    set_func="setWlanBasicMode" ></param>
+				<param name="Channel"		                    rw="0"	type="uint"  get_func="getWlanBasicChannel" 	    set_func="" ></param>
+				<param name="ChannelBandwidth"		       rw="0"	type="bool" get_func="getWlanBasicBandWidth" 	    set_func="setWlanBasicChannel" ></param>
+				<param name="GuardInterval"		             rw="1"	 type="bool" get_func="getWlanBasicGuardInterval" 	     set_func="setWlanBasicGuardInterval" ></param>
+				<param name="ChannelMode"		             rw="1"	 get_func="getWlanBasicChannelMode" 	     set_func="setWlanBasicChannelMode" ></param>
+				<!--for Device wireless security settings-->
+				<param name="BasicAuthenticationMode" 		rw="1"  type="s" get_func="getWlanSecurityAuthMode" 	    set_func="setWlanSecurityAuthMode" ></param>
+				<param name="WPAEncryptionModes" 		rw="1"  type="s" get_func="getWlanSecurityEncrypType" 	    set_func="setWlanSecurityEncrypType" ></param>
+				<param name="KeyPassphrase" 			       rw="1"  type="s64" get_func="getWlanSecurityWPAPSK" 	    set_func="setWlanSecurityWPAPSK" ></param>
+				<!--for MAC Filter Settings-->
+				<param name="MACAddressControlEnabled" 	rw="1"  type="bool" get_func="getWlanMacFilterPolicy" 	    set_func="setWlanMacFilterPolicy" ></param>
+				<param name="AssociatedDeviceMACAddress"	rw="1"  type="s" get_func="getWlanMacControlList" 	    set_func="setWlanMacControlList" ></param>	              
+                       </object>
+                            
+			   <object name="2">   <!--WLANConfiguration.2 for 5G wireless parameters-->  
+				<!--for Device WLAN parameters-->
+			        <!--for Device wireless basic settings-->
+	        	       <param name="Enable" 		                     rw="1"	type="bool" get_func="getWlanBasicEnable5G" 	    set_func="setWlanBasicEnable5G" ></param>
+			       <param name="SSIDAdvertisementEnabled"      rw="0"   type="bool" get_func="getWlanBasicAdvertisementEnabled5G"       set_func="setWlanBasicAdvertisementEnabled5G" ></param>
+				<param name="SSID"  		                           rw="1"	type="s32" get_func="getWlanBasicSSID5G" 	    set_func="setWlanBasicSSID5G" ></param>
+				<param name="Standard"			              rw="0"   type="s"  get_func="getWlanBasicMode5G" 	    set_func="setWlanBasicMode5G" ></param>
+				<param name="Channel"		                    rw="0"	type="uint" get_func="getWlanBasicChannel5G" 	    set_func="setWlanBasicChannel5G" ></param>
+				<param name="ChannelBandwidth"		       rw="0"	 type="bool" get_func="getWlanBasicBandWidth5G" 	    set_func="setWlanBasicBandWidth5G" ></param>
+				<param name="GuardInterval"		             rw="1"	 type="bool" get_func="getWlanBasicGuardInterval5G" 	     set_func="setWlanBasicGuardInterval5G" ></param>
+				<param name="ChannelMode"		             rw="0"	 get_func="getWlanBasicChannelMode5G" 	     set_func="setWlanBasicChannelMode5G" ></param>
+				<!--for Device wireless security settings-->
+				<param name="BasicAuthenticationMode" 		rw="1"  type="s" get_func="getWlanSecurityAuthMode5G" 	    set_func="setWlanSecurityAuthMode5G" ></param>
+				<param name="WPAEncryptionModes" 		rw="1"   type="s" get_func="getWlanSecurityEncrypType5G" 	    set_func="setWlanSecurityEncrypType5G" ></param>
+				<param name="KeyPassphrase" 			       rw="1"  type="s64" get_func="getWlanSecurityWPAPSK5G" 	    set_func="setWlanSecurityWPAPSK5G" ></param>
+				<!--for MAC Filter Settings-->
+				<param name="MACAddressControlEnabled" 	rw="1"  type="bool" get_func="getWlanMacFilterPolicy5G" 	    set_func="setWlanMacFilterPolicy5G" ></param>
+				<param name="AssociatedDeviceMACAddress"	rw="1"	type="s" get_func="getWlanMacControlList5G" 	    set_func="setWlanMacControlList5G" ></param>
+			  </object>
+			 
+			 <object name="3">   <!--WLANConfiguration.3 gataway wireless parameters-->  							       
+			<!--for Gateway WLAN parameters-->
+			       <param name="Enable" 		               rw="0"	type="bool" get_func="get_gw_enable" 	                      set_func="set_gw_enable" ></param>
+			       <param name="SSID"  		                      rw="0"	type="s32" get_func="get_gw_ssid" 		               set_func="set_gw_ssid" ></param>
+			       <param name="BSSID"                              rw="0"  type="s" get_func="get_gw_BSSID" ></param>
+			       <param name="SSIDAdvertisementEnabled" rw="0"   type="bool" get_func="get_gw_SSIDAdvertisementEnabled" set_func="set_gw_SSIDAdvertisementEnabled" ></param>
+                           <param name="BasicAuthenticationMode"    rw="0"   type="s" get_func="get_gw_AuthMode"	    set_func="set_gw_AuthMode" ></param>
+				<param name="BasicEncryptionModes" 	  rw="0"   type="s" get_func="get_gw_EncrypMode" 	    set_func="set_gw_EncrypMode" ></param>
+				<param name="WPAAuthenticationMode"     rw="0"   type="s" get_func="get_gw_wpa_auth_mode"	    set_func="set_gw_wpa_auth_mode" ></param>
+				<param name="WPAEncryptionModes"         rw="0"   type="s" get_func="get_gw_wpa_encryp_mode"	    set_func="set_gw_wpa_encryp_mode" ></param>
+				<param name="KeyPassphrase" 	               rw="0"   type="s64" get_func="get_gw_passphrase" 	    set_func="set_gw_passphrase" ></param>
+				<param name="WEPKeyIndex" 	               rw="0"   type="uint" get_func="get_gw_WEPKeyIndex" 	    set_func="set_gw_WEPKeyIndex" ></param>
+                           <param name="Channel"		               rw="0"	type="uint"  get_func="get_gw_channel" 	               set_func="set_gw_channel" ></param>
+				<param name="Status"			               rw="0"  type="s" get_func="get_gw_connection_status"      ></param>                     	
+			 </object>
+			</object>
+		</object>  
+	</model>
+	<inform>
+		<paramlist>
+			<param name=""/>
+		</paramlist>
+	</inform>
+	<rpc>	
+  </rpc>
+</cwmp>

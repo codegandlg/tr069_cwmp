@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export PATH=/opt/buildroot-gdb/bin:$PATH
+
+
+make clean; make;rm /tftproot/cwmpd;sleep 2;cp cwmpd/src/cwmpd /tftproot/ ;ls -l /tftproot/ ;
+
+
+
