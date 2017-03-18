@@ -39,8 +39,8 @@ void cwmp_conf_init(cwmp_t * cwmp)
     cwmp->httpd_port =  nv_cwmp_conf_get_int("cpe_http_port");
 	cwmp->cpe_interface = nv_cwmp_conf_pool_get(pool, "cpe_interface");;
     cwmp->acs_url  =  nv_cwmp_conf_pool_get(pool,  "ACSURL"); 
-    cwmp->acs_user = nv_cwmp_conf_pool_get(pool, "ACSUsername");
-    cwmp->acs_pwd = nv_cwmp_conf_pool_get(pool, "ACSPassword");
+    cwmp->acs_user = nv_cwmp_conf_pool_get(pool, "Username");
+    cwmp->acs_pwd = nv_cwmp_conf_pool_get(pool, "Password");
 	cwmp->cpe_periodic   =  nv_cwmp_conf_get_int("PeriodicInformEnable");
     cwmp->cpe_periodic_time = nv_cwmp_conf_get_int("PeriodicInformInterval");
     cwmp->cpe_user = nv_cwmp_conf_pool_get(pool, "ConnectionRequestUsername");
@@ -48,11 +48,11 @@ void cwmp_conf_init(cwmp_t * cwmp)
 	
 	cwmp->cpe_mf	 =	nv_cwmp_conf_pool_get(pool, "Manufacturer");
 	cwmp->cpe_oui	 =	nv_cwmp_conf_pool_get(pool, "ManufacturerOUI");
-	cwmp->cpe_name =	nv_cwmp_conf_pool_get(pool, "GatewayModelName");
-	cwmp->cpe_sn	 =	nv_cwmp_conf_pool_get(pool, "GatewaySerialNum"); 
-	cwmp->cpe_pc	 =	nv_cwmp_conf_pool_get(pool, "GatewayProductClass");
+	cwmp->cpe_name =	nv_cwmp_conf_pool_get(pool, "ModelName");
+	cwmp->cpe_sn	 =	nv_cwmp_conf_pool_get(pool, "SerialNum"); 
+	cwmp->cpe_pc	 =	nv_cwmp_conf_pool_get(pool, "ProductClass");
 	
-	cwmp->cpe_hv = nv_cwmp_conf_pool_get(pool, "Hardwareversion");
+	cwmp->cpe_hv = nv_cwmp_conf_pool_get(pool, "HardwareVersion");
 	cwmp->cpe_sv = nv_cwmp_conf_pool_get(pool,  "SoftwareVersion");
 	
 	char local_ip[64] ={0};

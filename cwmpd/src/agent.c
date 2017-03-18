@@ -232,7 +232,7 @@ void cwmp_agent_start_session(cwmp_t * cwmp)
 
         while (!session_close)
         {
-            //cwmp_log_debug("session status: %d", session->status);
+            cwmp_log_debug("session status: %d", session->status);
             switch (session->status)
             {
                 case CWMP_ST_START:// value 0; first set form cwmp_session_create fun
@@ -658,48 +658,48 @@ void cwmp_agent_session(cwmp_t * cwmp)
     cwmp_set_envelope_ns(envstr, encstr);    
 
     print_param(cwmp->root, 0);
-	/*下面设置节点值是为了上报 inform， 非必须上报节点无需在这里设置value*/
+
     //CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, ManagementServerModule, URLModule);
     //cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->acs_url, TRstrlen(cwmp->acs_url), cwmp->pool);////here will user set_fun, for var stop_app , we need to change this 
 
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, ManagementServerModule, UsernameModule);
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, ManagementServerModule, UsernameModule);
 	cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->acs_user, TRstrlen(cwmp->gw_sn), cwmp->pool);
 
-	CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, ManagementServerModule, PasswordModule);
+	CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, ManagementServerModule, PasswordModule);
 	cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->acs_pwd, TRstrlen(cwmp->gw_sn), cwmp->pool);
 
-	CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, ManagementServerModule, ConnectionRequestURLModule);   
+	CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, ManagementServerModule, ConnectionRequestURLModule);   
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->local_ip, TRstrlen(cwmp->local_ip), cwmp->pool);
 	 
-	CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, ManagementServerModule, ConnectionRequestUsernameModule);
+	CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, ManagementServerModule, ConnectionRequestUsernameModule);
 	cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->cpe_user, TRstrlen(cwmp->gw_sn), cwmp->pool);
 
-	CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, ManagementServerModule, ConnectionRequestPasswordModule);
+	CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, ManagementServerModule, ConnectionRequestPasswordModule);
 	cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->cpe_pwd, TRstrlen(cwmp->gw_sn), cwmp->pool);
     
     //InternetGatewayDevice.DeviceInfo.{i}
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, DeviceInfoModule, ManufacturerModule);
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, DeviceInfoModule, ManufacturerModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->cpe_mf, TRstrlen(cwmp->cpe_mf), cwmp->pool);
 
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, DeviceInfoModule, ManufacturerOUIModule);
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, DeviceInfoModule, ManufacturerOUIModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->cpe_oui, TRstrlen(cwmp->cpe_oui), cwmp->pool);
 
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, DeviceInfoModule, ProductClassModule);
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, DeviceInfoModule, ProductClassModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->cpe_pc, TRstrlen(cwmp->cpe_pc), cwmp->pool);
 
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, DeviceInfoModule, SerialNumberModule);
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, DeviceInfoModule, SerialNumberModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->cpe_sn, TRstrlen(cwmp->cpe_sn), cwmp->pool);
-    
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, GatewayInfoModule, ManufacturerOUIModule);
+#if 0 
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, GatewayInfoModule, ManufacturerOUIModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->gw_oui, TRstrlen(cwmp->gw_oui), cwmp->pool);
 
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, GatewayInfoModule, ProductClassModule);
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, GatewayInfoModule, ProductClassModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->gw_pc, TRstrlen(cwmp->gw_pc), cwmp->pool);
 
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule, GatewayInfoModule, SerialNumberModule);
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule, GatewayInfoModule, SerialNumberModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->gw_sn, TRstrlen(cwmp->gw_sn), cwmp->pool);	
-
-    CWMP_SPRINTF_PARAMETER_NAME(name, 3, DeviceModule,LANModule,IPAddressModule);
+#endif
+    CWMP_SPRINTF_PARAMETER_NAME(name, 3, InternetGatewayDeviceModule,LANModule,IPAddressModule);
     cwmp_data_set_parameter_value(cwmp, cwmp->root, name, cwmp->local_ip, TRstrlen(cwmp->local_ip), cwmp->pool);
 
     cwmp_agent_start_session(cwmp);

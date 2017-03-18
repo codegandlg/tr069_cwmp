@@ -5,7 +5,7 @@
 int cpe_get_igd_gwmanufactureroui(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
 	FUNCTION_TRACE();
-	*value = nv_cwmp_conf_pool_get(pool,  "GatewayOui");
+	*value = nv_cwmp_conf_pool_get(pool,  "ManufacturerOUI");
 	//cwmp_log_debug("cpe_get_igd_di_manufacturer: value is %s", *value);
 	return	FAULT_CODE_OK;
 }
@@ -13,7 +13,7 @@ int cpe_get_igd_gwmanufactureroui(cwmp_t * cwmp, const char * name, char ** valu
 int cpe_get_igd_gwproductclass(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
 	FUNCTION_TRACE();
-	*value = nv_cwmp_conf_pool_get(pool,  "GatewayProductClass");
+	*value = nv_cwmp_conf_pool_get(pool,  "ProductClass");
 	//cwmp_log_debug("cpe_get_igd_di_manufacturer: value is %s", *value);
 	return	FAULT_CODE_OK;
 }
@@ -21,7 +21,7 @@ int cpe_get_igd_gwproductclass(cwmp_t * cwmp, const char * name, char ** value, 
 int cpe_get_igd_gwserialnumber(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
 	FUNCTION_TRACE();
-	*value = nv_cwmp_conf_pool_get(pool,  "GatewaySerialNum");
+	*value = nv_cwmp_conf_pool_get(pool,  "SerialNum");
 	//cwmp_log_debug("cpe_get_igd_di_manufacturer: value is %s", *value);
 	return	FAULT_CODE_OK;
 }
@@ -31,7 +31,7 @@ int cpe_get_igd_gwserialnumber(cwmp_t * cwmp, const char * name, char ** value, 
 int cpe_get_igd_di_manufacturer(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
     FUNCTION_TRACE();
-    *value = nv_cwmp_conf_pool_get(pool,  "DeviceManufacturer");
+    *value = nv_cwmp_conf_pool_get(pool,  "ATMC");
     //cwmp_log_debug("cpe_get_igd_di_manufacturer: value is %s", *value);
     return	FAULT_CODE_OK;
 }
@@ -40,7 +40,7 @@ int cpe_get_igd_di_manufacturer(cwmp_t * cwmp, const char * name, char ** value,
 int cpe_get_igd_di_manufactureroui(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
     FUNCTION_TRACE();
-    *value = nv_cwmp_conf_pool_get(pool,  "DeviceOui");
+    *value = nv_cwmp_conf_pool_get(pool,  "ManufacturerOUI");
     return	FAULT_CODE_OK;
 }
 
@@ -48,7 +48,7 @@ int cpe_get_igd_di_manufactureroui(cwmp_t * cwmp, const char * name, char ** val
 int cpe_get_igd_di_productclass(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
     FUNCTION_TRACE();
-    *value = nv_cwmp_conf_pool_get(pool,  "DeviceProductClass");
+    *value = nv_cwmp_conf_pool_get(pool,  "ProductClass");
     return	FAULT_CODE_OK;
 }
 
@@ -56,7 +56,7 @@ int cpe_get_igd_di_productclass(cwmp_t * cwmp, const char * name, char ** value,
 int cpe_get_igd_di_serialnumber(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
 	FUNCTION_TRACE();
-    *value = nv_cwmp_conf_pool_get(pool,  "DeviceSerialNum");
+    *value = nv_cwmp_conf_pool_get(pool,  "SerialNum");
     return	FAULT_CODE_OK;
 }
 
@@ -72,7 +72,7 @@ int cpe_get_igd_di_specversion(cwmp_t * cwmp, const char * name, char ** value, 
 int cpe_get_igd_di_hardwareversion(cwmp_t * cwmp, const char * name, char ** value, pool_t * pool)
 {
 	FUNCTION_TRACE();
-    *value = nv_cwmp_conf_pool_get(pool,  "Hardwareversion");
+    *value = nv_cwmp_conf_pool_get(pool,  "HardwareVersion");
     return	FAULT_CODE_OK;
 }
 
